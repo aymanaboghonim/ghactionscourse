@@ -1,0 +1,10 @@
+on:
+    repository_dispatch:
+        types: [incident_report]
+
+jobs:
+    handle_incident_report:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Handle Incident Report
+              run: echo "Incident report received and being handled."
