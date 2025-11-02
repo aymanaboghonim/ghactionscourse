@@ -1,0 +1,17 @@
+on:
+  workflow_dispatch:
+jobs:
+  expressions:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Test expression syntax
+        run: |
+          echo "The job is running on ${{ runner.os }} with event ${{ github.event_name }}"
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            echo "This job was triggered manually"
+          else
+            echo "This job was not triggered manually"
+          fi
+      - name: Send notification
+        if: ${{ github.event_name == 'workflow_dispatch' }}
+        run: "echo \"Notification: The workflow was triggered manually.\""
