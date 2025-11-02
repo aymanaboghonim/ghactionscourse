@@ -1,0 +1,16 @@
+on:
+    workflow_dispatch:
+jobs:
+    hybrid_job:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Run a command on Ubuntu
+              run: echo "This is running on Ubuntu"
+            - name: Run inside an Alpine container
+              uses: docker://alpine:latest # The image must be accessible without authentication
+              with: 
+                entrypoint: /bin/sh
+                args: -c "echo 'This is running inside an Alpine container'"
+
+            - name: Run another command on Ubuntu
+              run: echo "Back to Ubuntu environment"
