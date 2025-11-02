@@ -16,3 +16,9 @@ jobs:
           - name: Use API KEY
             run: echo "The API key is $API_KEY"
             
+          - name: Check if a file esists
+            run: |
+                if [ -f "./config.yaml" ]; then
+                  echo "::debug::config.yaml exists."
+                else
+                  echo "::error::config.yaml does not exist."
