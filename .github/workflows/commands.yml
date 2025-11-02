@@ -4,8 +4,15 @@ jobs:
     command_example:
         runs-on: ubuntu-latest
         steps:
-            - run: |
+          - name: Run example command
+            run: |
                 deprecated=true
                 if [ "$deprecated" = true ]; then
-                echo "::warning::This command is deprecated and will be removed in future versions."
+                  echo "::warning::This command is deprecated and will be removed in future versions."
                 fi
+
+          - name: Set API KEY
+            run: echo "API_KEY=your_api_key_here" >> $GITHUB_ENV
+          - name: Use API KEY
+            run: echo "The API key is $API_KEY"
+            
