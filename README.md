@@ -37,6 +37,7 @@ This repository contains example workflows and a simple Node.js application used
 - **scheduled.yml**: Runs weekly (cron). Prints a message to demonstrate scheduled workflows.
 - **manual.yml**: Manual trigger with environment input (staging/production). Prints which environment is being deployed to.
 - **manual-api.yml**: Triggered by `repository_dispatch` event of type `incident_report`. Prints a message to handle the event.
+- **expressions.yml**: Manual trigger. Demonstrates using expressions and conditional steps (e.g., checking `github.event_name` and using `if:` for step execution).
 
 ## The Sample Application
 

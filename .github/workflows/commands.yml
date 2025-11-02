@@ -1,0 +1,11 @@
+on:
+  workflow_dispatch:
+jobs:
+    command_example:
+        runs-on: ubuntu-latest
+        steps:
+            - run: |
+                deprecated=true
+                if [ "$deprecated" = true ]; then
+                echo "::warning::This command is deprecated and will be removed in future versions."
+                fi
