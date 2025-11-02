@@ -12,7 +12,7 @@ jobs:
                 fi
 
           - name: Set API KEY
-            run: echo "API_KEY=your_api_key_here" >> $GITHUB_ENV
+            run: echo "API_KEY=your_api_key_here" >> $GITHUB_ENV # Set api key directly in env for demonstration
           - name: Use API KEY
             run: echo "The API key is $API_KEY"
 
@@ -23,3 +23,7 @@ jobs:
                 else
                   echo "::error::config.yaml does not exist."
                 fi
+          - name: Masking API KEY
+            run: |
+                echo "::add-mask::$API_KEY"
+                echo "The masked API key is $API_KEY"
